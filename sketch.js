@@ -23,7 +23,6 @@ class bigline
     draw_line(angle)
     {
         stroke(0);
-        
         var x = cos(radians(angle)) * 1500;
         var y = sin(radians(angle)) * 1500;
         line(midx - x + this.cx, midy - y + this.cy, x + midx + this.cx, y + midy + this.cy);   
@@ -33,7 +32,6 @@ class bigline
     {
         this.cx = cx;
         this.cy = cy;
-      
     }
 }
 
@@ -48,7 +46,7 @@ class pnt
     {
         noStroke();
         fill(200,255,200);
-        ellipse(this.x + midx, this.y + midy, pnt_r*1.5, pnt_r*1.5)
+        ellipse(this.x + midx, this.y + midy, pnt_r * 1.5, pnt_r * 1.5)
     }
     get_angle(cx, cy)
     {
@@ -58,7 +56,6 @@ class pnt
         a = degrees(a);
         if (a < 0)
             a = 180 + a;
-        
         return (a);
     }
     get_distance(cx, cy)
@@ -67,7 +64,6 @@ class pnt
         var xd = this.x - cx;
         var yd = this.y - cy;
         var d = sqrt(xd * xd + yd * yd);
-      
         return (d);
     }
 
@@ -80,7 +76,7 @@ let speed = 1;
 let pnt_amount = 2;
 var myLine = new bigline(0, 0);
 var points = [];
-var pnt_r = 5;
+var pnt_r = 7;
 var ofs = 0;
 var slider;
 var line_direction = 1;
@@ -102,8 +98,7 @@ function compare_angles(a1, a2, p)
     var dy = myLine.cy - p.y;
     //dot product
     var d = lx * dx + ly * dy;
-    //d = abs(d);
-    //print(ly * d + " " + p.y);
+
     if ((lx*d < dx + pnt_r) && (lx*d > dx - pnt_r))
         if ((ly*d < dy + pnt_r ) && ( ly*d > dy - pnt_r))
             return 1;
@@ -142,7 +137,6 @@ function draw()
         angle = (((millis() / 100 * speed)) + ofs * -1);
     else if (speed  > 0)
         angle = (((millis() / 100 * speed)) + ofs);
-    //angle += line_direction * speed / 100 + ofs
     speed = (slider.value());
     myLine.draw_line(angle);
 }
