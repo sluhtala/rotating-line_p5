@@ -76,7 +76,7 @@ let speed = 1;
 let pnt_amount = 2;
 var myLine = new bigline(0, 0);
 var points = [];
-var pnt_r = 7;
+var pnt_r = 10;
 var ofs = 0;
 var slider;
 var line_direction = 1;
